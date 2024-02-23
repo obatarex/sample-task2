@@ -9,7 +9,7 @@ package oop.ica.part1;
  * @author confidence
  */
 public class ArtPrint {
-    // class instance attribiutes 
+    // class instance attribiutes
     private int id;
     private String title;
     private String artist;
@@ -75,5 +75,5 @@ public class ArtPrint {
     public String getPriceAsString() {
         return String.format("£ %.2f", price);
     }
-    
+
 }
