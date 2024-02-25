@@ -94,7 +94,7 @@ public class ArtsPrintsSystem {
         // invoke displayData
         displayData();
 
-        System.out.print("\nPlease enter item number to BUY: ");
+        System.out.print("\nPlease enter item number to BUY or enter 0 to terminate operation:\n");
 
         // get selected item number from user
         int item = getSelectedItem();
@@ -113,7 +113,9 @@ public class ArtsPrintsSystem {
             // inform user
             System.out.printf("\nThanks for buying %s \n", artItem.getTitle());
 
-        } else if (item != Integer.MIN_VALUE) {
+        } else if(item==0){
+            System.out.println("\nOperation terminated\n");
+        }else if (item != Integer.MIN_VALUE) {
             System.out.println("\n!!!!! Input Error: Value not on the list !!!!!\n");
         } // end of condition
 
@@ -135,7 +137,7 @@ public class ArtsPrintsSystem {
         // invoke displayData
         displayData();
 
-        System.out.print("\nPlease enter item number to ADD: ");
+        System.out.print("\nPlease enter item number to ADD or enter 0 to terminate operation:\n");
 
         // local variables
         int item = getSelectedItem();
@@ -155,6 +157,8 @@ public class ArtsPrintsSystem {
             // inform user
             System.out.printf("\nThanks for adding %s\n", artItem.getTitle());
 
+        }else if(item==0){
+            System.out.println("\nOperation terminated\n");
         } else if (item != Integer.MIN_VALUE) {
             System.out.println("\n!!!!! Input Error: Value not on the list !!!!!\n");
         } // end of conditions
