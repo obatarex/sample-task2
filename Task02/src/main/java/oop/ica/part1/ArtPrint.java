@@ -26,8 +26,9 @@ public class ArtPrint {
         this.price = price;
         this.stock = stock;
     }
+    
 
-    // Getters and Setters
+    //Getters
     public int getId() {
         return id;
     }
@@ -51,7 +52,9 @@ public class ArtPrint {
     public int getStock() {
         return stock;
     }
+    
 
+    //Setters
     public void setTitle(String title) {
         this.title = title;
     }
@@ -71,7 +74,9 @@ public class ArtPrint {
     public void setStock(int stock) {
         this.stock = stock;
     }
-
+    
+    
+    // Service method
     public String getPriceAsString() {
         return String.format("£ %.2f", price);
     }

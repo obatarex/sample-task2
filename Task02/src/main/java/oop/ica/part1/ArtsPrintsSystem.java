@@ -27,11 +27,13 @@ public class ArtsPrintsSystem {
 
         // Display name and advertising phrase
         welcome();
+        
 
         // Invoke loadData method
         loadData();
+        
 
-        // declare local variables
+        // declare local variable
         int option = -1;
 
         // start while loop
@@ -39,12 +41,15 @@ public class ArtsPrintsSystem {
 
             // Display the menu
             menu();
+            
 
             // Input validation checks
             if (keyboard.hasNextInt()) {
 
+               
                 // listen to keyboard input
                 option = keyboard.nextInt();
+                
 
                 // process choice
                 switch (option) {
@@ -56,13 +61,13 @@ public class ArtsPrintsSystem {
 
                     case 3 -> add();
 
-                    default -> System.out.println("\n Incorrect option, please try again!");
+                    default -> System.out.println("\n!!!!! Input Error: Value not on the menu list !!!!!\n");
 
                 }// end of switch
 
             } else {
 
-                System.err.println("\n Incorrect input, please enter a number from the menu options");
+                System.err.println("\n!!!!! Input Error: not an integer !!!!!\n");
                 option = -1;
                 keyboard.nextLine();
             }
@@ -71,21 +76,26 @@ public class ArtsPrintsSystem {
 
     }// end of main
 
+    
+    
     // Display menu method
     static void menu() {
 
         System.out.println("\n ### MENU ### ");
-        System.out.print("\n 1. View \n 2. Buy \n 3. Add \n 0. Quit \n");
-    }// end of menu function
+        System.out.print("\n [1] View \n [2] Buy \n [3] Add \n [0] Quit \n");
+        System.out.print("\nPlease enter a number from the menu or enter [0] to quit:\t");
+    }// end of menu method
 
+    
     // Display welcome message method
     static void welcome() {
-        // Display name and advertising phrase
-        System.out.println("ART PRINTS");
+        
+        System.out.println("**** ART PRINTS ****");
         System.out.println("Welcome to ART PRINTS, Where Walls Become Canvases: Art Prints for Every Space!");
 
-    }// end of welcome function
+    }// end of welcome method
 
+    
     // method to handle buy operation
     static void buy() {
 
@@ -94,7 +104,7 @@ public class ArtsPrintsSystem {
         // invoke displayData
         displayData();
 
-        System.out.print("\nPlease enter item number to BUY or enter 0 to terminate operation:\n");
+        System.out.print("\nPlease enter item number to BUY or enter [0] to terminate operation:\t");
 
         // get selected item number from user
         int item = getSelectedItem();
@@ -102,25 +112,32 @@ public class ArtsPrintsSystem {
         if (item > 0 && artPrints.size() >= item) {
             // get the object element
             ArtPrint artItem = artPrints.get(item - 1);
+            
             // get stock balance
             int balance = artItem.getStock() - 1;
+            
             // set stock balance
             artItem.setStock(balance);
 
             // update our Table
-            artPrints.set(item - 1, artItem);
+            //artPrints.set(item - 1, artItem);
 
             // inform user
-            System.out.printf("\nThanks for buying %s \n", artItem.getTitle());
+            System.out.printf("\nThanks for buying %s with Artist Name %s \n", artItem.getTitle(), artItem.getArtist());
+            System.out.printf("\nThe new stock for %s is %d \n", artItem.getTitle(), artItem.getStock());
 
-        } else if(item==0){
+        } 
+        else if(item==0){
             System.out.println("\nOperation terminated\n");
-        }else if (item != Integer.MIN_VALUE) {
+        }
+        else if (item != Integer.MIN_VALUE) {
             System.out.println("\n!!!!! Input Error: Value not on the list !!!!!\n");
+            keyboard.nextLine();
         } // end of condition
 
     }// end of buy function
 
+    
     // method to handle view operation
     static void view() {
         System.out.println("\n *** VIEW *** \n");
@@ -130,6 +147,7 @@ public class ArtsPrintsSystem {
 
     }// end of view function
 
+    
     // Display the menu method
     static void add() {
         System.out.println("\n *** ADD *** \n");
@@ -137,7 +155,7 @@ public class ArtsPrintsSystem {
         // invoke displayData
         displayData();
 
-        System.out.print("\nPlease enter item number to ADD or enter 0 to terminate operation:\n");
+        System.out.print("\nPlease enter item number to ADD or enter [0] to terminate operation:\t");
 
         // local variables
         int item = getSelectedItem();
@@ -146,25 +164,32 @@ public class ArtsPrintsSystem {
         if (item > 0 && artPrints.size() >= item) {
             // get the object element
             ArtPrint artItem = artPrints.get(item - 1);
+            
             // get stock balance
             int balance = artItem.getStock() + 1;
+            
             // set stock balance
             artItem.setStock(balance);
 
             // update our Table
-            artPrints.set(item - 1, artItem);
+            //artPrints.set(item - 1, artItem);
 
             // inform user
-            System.out.printf("\nThanks for adding %s\n", artItem.getTitle());
+            System.out.printf("\nThanks for adding %s with Artist Name %s \n", artItem.getTitle(), artItem.getArtist());
+            System.out.printf("\nThe new stock for %s is %d \n", artItem.getTitle(), artItem.getStock());
 
-        }else if(item==0){
+        }
+        else if(item==0){
             System.out.println("\nOperation terminated\n");
-        } else if (item != Integer.MIN_VALUE) {
+        } 
+        else if (item != Integer.MIN_VALUE) {
             System.out.println("\n!!!!! Input Error: Value not on the list !!!!!\n");
+            keyboard.nextLine();
         } // end of conditions
 
     }// end of add function
 
+    
     // loadData method
     static void loadData() {
         // Load sample data
@@ -174,6 +199,7 @@ public class ArtsPrintsSystem {
                 "Gloss Card", 39.99, 2));
     }// end of loadData method
 
+    
     // displayData method
     static void displayData() {
         // Intialize item number to 1
@@ -189,6 +215,8 @@ public class ArtsPrintsSystem {
         }
     }// end of displayData
 
+    
+    // Method to receive item number from user
     static int getSelectedItem() {
 
         int item;
@@ -196,7 +224,8 @@ public class ArtsPrintsSystem {
         try {
             // read input
             item = keyboard.nextInt();
-        } catch (InputMismatchException e) {
+        } 
+        catch (InputMismatchException e) {
             // warn user
             System.out.println("\n!!!!! Input Error: not an integer !!!!!\n");
 
@@ -207,6 +236,6 @@ public class ArtsPrintsSystem {
 
         return item;
 
-    }
+    }//end of getSelectedItem method
 
 }
