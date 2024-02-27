@@ -113,19 +113,23 @@ public class ArtsPrintsSystem {
             // get the object element
             ArtPrint artItem = artPrints.get(item - 1);
             
-            // get stock balance
-            int balance = artItem.getStock() - 1;
-            
-            // set stock balance
-            artItem.setStock(balance);
+            if(artItem.getStock()==0){
+                 System.out.printf("\n %s by %s is out of stock \n", artItem.getTitle(), artItem.getArtist());
+            }
+            else{
+                // get stock balance
+                int balance = artItem.getStock() - 1;
 
-            // update our Table
-            //artPrints.set(item - 1, artItem);
+                // set stock balance
+                artItem.setStock(balance);
 
-            // inform user
-            System.out.printf("\nThanks for buying %s with Artist Name %s \n", artItem.getTitle(), artItem.getArtist());
-            System.out.printf("\nThe new stock for %s is %d \n", artItem.getTitle(), artItem.getStock());
+                // update our Table
+                //artPrints.set(item - 1, artItem);
 
+                // inform user
+                System.out.printf("\nThanks for buying %s by %s \n", artItem.getTitle(), artItem.getArtist());
+                System.out.printf("\nThe new stock for %s is %d \n", artItem.getTitle(), artItem.getStock());
+            }
         } 
         else if(item==0){
             System.out.println("\nOperation terminated\n");
@@ -175,7 +179,7 @@ public class ArtsPrintsSystem {
             //artPrints.set(item - 1, artItem);
 
             // inform user
-            System.out.printf("\nThanks for adding %s with Artist Name %s \n", artItem.getTitle(), artItem.getArtist());
+            System.out.printf("\nThanks for adding %s by %s \n", artItem.getTitle(), artItem.getArtist());
             System.out.printf("\nThe new stock for %s is %d \n", artItem.getTitle(), artItem.getStock());
 
         }
@@ -197,6 +201,9 @@ public class ArtsPrintsSystem {
         artPrints.add(new ArtPrint(2000002, "Poppy field", "Monet", "Canvas", 25.50, 1));
         artPrints.add(new ArtPrint(2000003, "Bridege over a pondof water lilies", "Monet",
                 "Gloss Card", 39.99, 2));
+        artPrints.add(new ArtPrint(5000444, "Church in Cassone", "Klimt", "Matt 250gsm Paper ", 109.99, 0));
+        artPrints.add(new ArtPrint(9876543, "The Fighting Temeraire", "Turner", "Canvas", 50.50, 2));
+        
     }// end of loadData method
 
     
