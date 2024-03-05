@@ -55,18 +55,7 @@ public class ArtPrint {
     
 
     //Setters
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setArtist(String artist) {
-        this.artist = artist;
-    }
-
-    public void setMaterial(String material) {
-        this.material = material;
-    }
-
+    
     public void setPrice(double price) {
         this.price = price;
     }

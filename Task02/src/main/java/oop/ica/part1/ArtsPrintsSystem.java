@@ -127,7 +127,7 @@ public class ArtsPrintsSystem {
                 //artPrints.set(item - 1, artItem);
 
                 // inform user
-                System.out.printf("\nThanks for buying %s by %s \n", artItem.getTitle(), artItem.getArtist());
+                System.out.printf("\nThanks for buying %s by %s at a cost of %s \n", artItem.getTitle(), artItem.getArtist(), artItem.getPriceAsString());
                 System.out.printf("\nThe new stock for %s is %d \n", artItem.getTitle(), artItem.getStock());
             }
         } 
@@ -212,7 +212,7 @@ public class ArtsPrintsSystem {
         // Intialize item number to 1
         int itemNumb = 1;
 
-        System.out.println("ITEM NUMBER\tTITLE\t\t\t\tARTIST\t\t\tMATERIAL\t\tPRICE\t\tSTOCK");
+        System.out.println("ITEM \tTITLE\t\t\t\t\tARTIST\t\t\tMATERIAL\t\tPRICE\t\tSTOCK");
         System.out.println("-".repeat(118));
         for (ArtPrint print : artPrints) {
             System.out.printf("%2d\t%-35s\t%-20s\t%-20s\t%-10s\t%2d %n", itemNumb, print.getTitle(),
